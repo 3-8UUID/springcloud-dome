@@ -10,6 +10,12 @@ public class HelloService {
     @Autowired
     RestTemplate restTemplate;
 
+    Object obj  = new Object();
+
+    public Object getObj() {
+        return obj;
+    }
+
     // 断路器配置，当无法调用如下方法时，就会调用自定的hiError方法。
     @HystrixCommand(fallbackMethod = "hiError")
     public String hiService(String name)
